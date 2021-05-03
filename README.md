@@ -4,7 +4,7 @@
 ## *Я приступил к работе!*
 
 ![Ненавидят] (https://youtu.be/U7d1K6sTX6o)
-
+![One piece] (https://yummyanime.club/img/posters/1604950354.jpg)
 
 ```
 public class HelloWorld {
