@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Place {
     private Integer id;
     private String address;

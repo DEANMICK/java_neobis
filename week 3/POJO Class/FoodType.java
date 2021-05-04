@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class FoodType {
     private Integer id;
     private String name;
