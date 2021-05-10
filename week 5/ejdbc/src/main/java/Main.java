@@ -2,9 +2,9 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
-    private static final String url = "jdbc:mysql://localhost:3306/testschema";
-    private static final String username = "root";
-    private static final String password = "Mpower1704";
+    private static final String url = "jdbc:mysql://localhost:3306/database";
+    private static final String username = "username";
+    private static final String password = "password";
     private static final String[] arrays = {"Печать", "Добавить", "Удалить", "Обновить", "Выход"};
     private static final Scanner SCANNER = new Scanner(System.in);
 

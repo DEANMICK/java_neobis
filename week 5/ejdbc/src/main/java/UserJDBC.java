@@ -1,4 +1,3 @@
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,18 +48,17 @@ public class UserJDBC {
             if (name.equals(nameSearch)) {
                 System.out.format("|%-4s|%-14s|%-34s|%-34s|%-9s|\n", id, name, email, password, role);
                 table();
+                updateUserInfo(statement, resultSet);
             }
         }
-        updateUserInfo(statement, nameSearch);
     }
 
-    private static void updateUserInfo(Statement statement, String nameSearch) throws SQLException {
+    private static void updateUserInfo(Statement statement, ResultSet resultSet) throws SQLException {
         System.out.print("Хотите перезаписать данные?\n[1] Yes\t\t[2] No\n>>> ");
-        String newName = "", newEmail = "", newPassword = "";
-        ResultSet resultSet = statement.executeQuery("SELECT id FROM users WHERE name=" + nameSearch);
         int choice = SCANNER.nextInt();
         switch (choice){
             case 1:
+                String newName = "", newEmail = "", newPassword = "", query = "";
                 System.out.print("Что хотите перезаписать?");
                 System.out.printf("\n\t[1]%s\n\t[2]%s\n\t[3]%s\n>>> ", arrays[1], arrays[2], arrays[3]);
                 int vybor = SCANNER.nextInt();
@@ -69,14 +67,31 @@ public class UserJDBC {
                         System.out.print("Введите новое имя: ");
                         SCANNER.nextLine();
                         newName = SCANNER.nextLine();
-                        String query = "UPDATE users SET name=" + newName + "WHERE id=" + resultSet.getString("id");
+                        query = "UPDATE users SET name='" + newName + "'WHERE id=" + resultSet.getString("id");
                         statement.executeUpdate(query);
-                        changeUserInfo(statement);
+                        updateUserInfo(statement, resultSet);
+                        break;
+
+                    case 2:
+                        System.out.print("Введите новый email: ");
+                        SCANNER.nextLine();
+                        newEmail = SCANNER.nextLine();
+                        query = "UPDATE users SET email='" + newEmail + "'WHERE id=" + resultSet.getString("id");
+                        statement.executeUpdate(query);
+                        updateUserInfo(statement, resultSet);
+                        break;
+
+                    case 3:
+                        System.out.print("Введите новый пароль: ");
+                        SCANNER.nextLine();
+                        newPassword = SCANNER.nextLine();
+                        query = "UPDATE users SET password='" + newPassword + "'WHERE id=" + resultSet.getString("id");
+                        statement.executeUpdate(query);
+                        updateUserInfo(statement, resultSet);
                         break;
                 }
 
             case 2:
-                changeUserInfo(statement);
                 break;
         }
     }
