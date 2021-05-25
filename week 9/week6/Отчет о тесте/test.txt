@@ -1,0 +1,17 @@
+После создания проекта я запустил его, затем указал ссылку (http://localhost:8080/users) в Postman.
+
+1) GET Request(pic01.png)
+Указав адрес "http://localhost:8080/users" я получил всех пользователей в моей БД. Затем перехожу к GET по id
+
+2) Получил все о пользователе по id = 1 (pic02.jpg). Перехожу к GET по email
+
+3) Получил все о пользователе по email(pic03.jpg). Перехожу к POST
+
+4) POST Request(pic04.png)
+Указав адрес "http://localhost:8080/users/new" я выполняю POST Request чтобы добавить пользователя в БД. Затем перехожу к PUT Request 
+
+5) PUT Request(pic05.png)
+Указав адрес "http://localhost:8080/users/update/id={id}" я выполняю PUT Request чтобы обновить(изменить) данные пользователя в БД. Затем перехожу к DELETE Request 
+
+6) DELETE Request(pic06.png)
+Указав адрес "http://localhost:8080/users/delete/id={id}" я выполняю DELETE Request чтобы удалить работника из БД.
